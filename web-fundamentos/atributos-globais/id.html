@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>id</title>
+        <style>
+            #box-1 {
+                width: 150px;
+                height: 150px;
+                background-color: rgb(50, 116, 173);
+            }
+
+            #box-2 {
+                width: 150px;
+                height: 150px;
+                background-color: rgb(173, 89, 50);
+            }
+        </style>
+    </head>
+
+    <body>
+
+            <!-- serve para fazer uma identificação na TAG, esse elemento é muito utilizado. A identificação deve ser ÚNICA -->
+        <div id="box-1"></div>
+        <div id="box-2"></div>
+
+
+        <script>
+
+            const box1 = document.getElementById("box-1");
+            console.log(box1);
+
+            const box2 = document.querySelector("#box-2");
+            console.log(box2);
+
+        </script>
+
+    </body>
+</html>

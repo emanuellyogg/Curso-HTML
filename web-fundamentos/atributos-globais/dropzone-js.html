@@ -1,0 +1,75 @@
+<html>
+
+<head>
+    <title>dropzone</title>
+    <!-- style cria-se o CSS, que são estilos que aplicamos aos elementos e atributos dos elementos. -->
+    <style>
+        .caixa1 {
+           background-color: crimson;
+        }
+
+        .caixa2 {
+           background-color: rgb(220, 20, 193);
+        }
+
+        .caixa3 {
+           background-color: rgb(50, 20, 220);
+        }
+
+        .caixa {
+            width: 100px;
+            height: 100;
+        }
+
+        .drop {
+            width: 200px;
+            height: 200;
+            border:rgb(53, 220, 20) 3px solid;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- atributo que permite arrastar um elemento e soltar ele dentro de um lugar "dropzone" -->
+    <div id="c1" class="caixa caixa1" draggable="true"></div>
+    <div id="c2" class="caixa caixa2" draggable="true"></div>
+    <div id="c3" class="caixa caixa3" draggable="true"></div>
+
+
+
+    <div class="drop" dropzone="copy"></div>
+
+    <script>
+
+        const caixas = document.querySelectorAll('.caixa');
+        const dropzone = document.querySelector('[dropzone]');
+
+        caixas.forEach(caixaEl => {
+
+            caixaEl.addEventListener('dragstart', e => {
+
+                e.dataTransfer.setData('Text', e.target.id);
+                console.log(e.target.id);
+
+            });
+        });
+
+        dropzone.addEventListener('dragover', e => {
+
+            e.preventDefault();
+
+        });
+
+        dropzone.addEventListener('drop', e => {
+
+            const id = e.dataTransfer.getData('Text');
+            const element = document.getElementById(id);
+
+            e.target.appendChild(element);
+
+        });
+
+    </script>
+
+</body>
+</html>
