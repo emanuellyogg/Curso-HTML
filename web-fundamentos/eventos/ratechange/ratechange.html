@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event: ratechange</title>
+
+    <style>
+        video {
+            width: 80vh;
+        }
+    </style>
+</head>
+<body>
+    <!-- seleção de opções para velocidade de reprodução -->
+    <select onchange="setRate(event)">
+        <option>0.25</option>
+        <option>0.50</option>
+        <option>0.75</option>
+        <option selected>1</option>
+        <option>1.25</option>
+        <option>1.50</option>
+        <option>1.75</option>
+        <option>2</option>
+
+    </select>
+
+    <video src="https://storage.googleapis.com/hcode-public-storage/videos/AV1_trailer.mp4" controls 
+    onabort="debug(event)"
+    onratechange="debug(event)">
+    </video>
+
+    <script>
+        function debug(e) {
+            console.log("Evento: " + e.type);
+        }
+        // função para aplicar a velocidade de reprodução do video
+        function setRate(e) {
+            // const para chamar o video;
+            const videoEl = document.querySelector("video");
+            // const que recebe a velocidade no select;
+            const value = e.target.value;
+            // colocar dentro do video, propriedade playbackRate que recebe a velocidade de reprodução
+            // parseFloat para receber valor numerico, pois vem em texto do HTML, converte a string em número.
+            videoEl.playbackRate = parseFloat(value);
+            
+        }
+    </script>
+
+</body>
+</html>
