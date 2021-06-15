@@ -29,6 +29,12 @@ document.querySelector('#form-login').addEventListener('submit', e => {
 
   e.preventDefault(); //evento para cancelar comportamento pradão do navegador
 
-  console.log('Formulário enviado! Aqui vai o Ajax.')
+  //console.log('Formulário enviado! Aqui vai o Ajax.')
+
+  //recuperar os dados do formulário, somente após o event submit.
+  let email = document.querySelector('#email').value;
+  let passowrd = document.querySelector('#password').value;
+
+  console.log(email, passowrd);
 
 });
