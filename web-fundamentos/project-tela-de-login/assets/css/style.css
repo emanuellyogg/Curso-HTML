@@ -51,6 +51,7 @@ body {
 .content-center button {
     background-color: #f72890;
     color: rgb(255, 255, 255);
+    border-radius: 100px;
 }
 /* estilo no botão, usando ":hover" para sinalizar destaque quando o mouse passar pelo botão */
 .content-center button:hover {
