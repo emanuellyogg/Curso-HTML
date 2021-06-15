@@ -35,6 +35,19 @@ document.querySelector('#form-login').addEventListener('submit', e => {
   let email = document.querySelector('#email').value;
   let passowrd = document.querySelector('#password').value;
 
-  console.log(email, passowrd);
+  let json = {
+    email,
+    passowrd
+  };
+
+  console.log(json);
+
+  let stringJSON = JSON.stringify(json);
+
+  console.log(stringJSON);
+
+  let jsonParse = JSON.parse(stringJSON);
+
+  console.log(jsonParse);
 
 });
