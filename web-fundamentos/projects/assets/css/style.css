@@ -99,7 +99,7 @@ footer {
     width: 100%;
     text-align: center;
     max-width: 500px;
-    background-color: rgb(255, 58, 166);
+    background-color: rgb(166, 58, 255);
     margin: auto;
     padding: 20px;
     color: #fff;
@@ -112,11 +112,18 @@ footer {
 
 .content-tabuada td {
     padding: .75rem;
-    border-top: 1px solid #ffb2c2;
+    border-top: 1px solid #edb2ff;
 }
 
 .content-tabuada tbody tr:nth-child(odd) { /*comando para pintar de forma intercalada*/
-    background-color: #fd9cb0;
+    background-color: #de9cfd;
 }
 .content-tabuada tbody tr:hover {
-    background-color: #ff0080;
+    background-color: #ffe600;
+}
+
+#valorA {
+    width: 100%;
+    padding: 10px;
+
+}

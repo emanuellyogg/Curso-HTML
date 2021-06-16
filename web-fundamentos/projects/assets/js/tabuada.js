@@ -1,24 +1,32 @@
-let tabuada = document.querySelector("#tabuada tbody");
-let valorA = 5;
+function calculaTabuada() { //função de calcular a tabuada
 
-tabuada.innerHTML = ''; //limpar o conteudo da tabela antes de passar pelo FOR
+  let tabuada = document.querySelector("#tabuada tbody");
+  let valorA = parseInt(document.querySelector("#valorA").value); //função parseInt para transformar em número 
 
-for (let valorB = 0; valorB <= 10; valorB++) { //dentro do FOR posso declarar as minhas variáveis e as condições
+  tabuada.innerHTML = ''; //limpar o conteudo da tabela antes de passar pelo FOR
 
-  let resultado = valorA * valorB;
+  for (let valorB = 0; valorB <= 10; valorB++) { //dentro do FOR posso declarar as minhas variáveis e as condições
 
-  let template = `
-    <td>${valorA}</td>
-    <td>x</td>
-    <td>${valorB}</td>
-    <td>=</td>
-    <td>${resultado}</td>
-  `;
+    let resultado = valorA * valorB;
 
-  let tr = document.createElement('tr'); //comando para criar uma linha
+    let template = `
+      <td>${valorA}</td>
+      <td>x</td>
+      <td>${valorB}</td>
+      <td>=</td>
+      <td>${resultado}</td>
+    `;
 
-  tr.innerHTML = template; //propriedade para visualizar string
+    let tr = document.createElement('tr'); //comando para criar uma linha
 
-  tabuada.append(tr); //propriedade para adicionar no final a variável tr
+    tr.innerHTML = template; //propriedade para visualizar string
+
+    tabuada.append(tr); //propriedade para adicionar no final a variável tr
+
+  }
 
 }
+
+calculaTabuada(); //chamar a função calcular a tabuada
+
+document.querySelector("#valorA").addEventListener('change', calculaTabuada); //evento "ouvinte" para receber o valor do input e passar na função calculaTabuada. Evento "change" pois o valor poderá ser alterado.
