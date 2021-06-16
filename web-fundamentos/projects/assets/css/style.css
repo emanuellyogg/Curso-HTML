@@ -105,6 +105,18 @@ footer {
     color: #fff;
 }
 
-.content-tabuada td {
-    padding: 10px;
+.content-tabuada table {
+    width: 100%;
+    border-collapse: collapse; /* unificar as bordas de cada coluna */
 }
+
+.content-tabuada td {
+    padding: .75rem;
+    border-top: 1px solid #ffb2c2;
+}
+
+.content-tabuada tbody tr:nth-child(odd) { /*comando para pintar de forma intercalada*/
+    background-color: #fd9cb0;
+}
+.content-tabuada tbody tr:hover {
+    background-color: #ff0080;
