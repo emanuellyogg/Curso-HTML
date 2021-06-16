@@ -1,4 +1,4 @@
-function calculaTabuada() { //função de calcular a tabuada
+function calculaTabuada() { //declaração de uma função: função de calcular a tabuada
 
   let tabuada = document.querySelector("#tabuada tbody");
   let valorA = parseInt(document.querySelector("#valorA").value); //função parseInt para transformar em número 
