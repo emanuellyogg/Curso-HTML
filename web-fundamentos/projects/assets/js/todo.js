@@ -42,7 +42,11 @@ function renderTodo() {
 
     });
 
-    li.querySelector('button') //no meu li procurar um botão que tem ai dentro e add um evento click nele
+    li.querySelector('button').addEventListener('click', e => { //no meu li procurar um botão que tem ai dentro e add um evento click nele
+
+      console.log(e.target.parentNode.querySelector('input').id.split('-')[1]);
+
+    });
 
     document.querySelector('.todo').append(li);
 
