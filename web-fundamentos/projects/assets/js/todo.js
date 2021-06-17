@@ -45,16 +45,23 @@ function renderTodo() {
     //no meu li procurar um botão que tem ai dentro e add um evento click nele
     li.querySelector('button').addEventListener('click', e => {
 
+      //meu botão excluir a tarefa, parametros para encontrar o tarefa que deve ser excluída.
       let button = e.target;
       let li = button.parentNode;
       let input = li.querySelector('input');
       let id = input.id;
       let idArray = id.split('-');
       let todoId = idArray[1];
+      let title = li.querySelector('label').innerText;
 
-      data = data.filter(task => task.id !== parseInt(todoId));
+      //SE clicar em excluir, FAÇA a exclusão da tarefa
+      if (confirm(`Deseja realmente excluir a tarefa "${title}"?`)) {
 
-      renderTodo();
+        data = data.filter(task => task.id !== parseInt(todoId));
+
+        renderTodo();
+
+      };
 
     });
 
