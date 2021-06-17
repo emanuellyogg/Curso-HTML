@@ -25,6 +25,18 @@ data.forEach(task => { //FOREACH passa em cada elemento da Array e vai executand
     <label for="task-${task.id}">${task.title}</label> 
   `;
 
+  //evento para quando o item for marcado, ele ficará riscado da lista
+  li.querySelector('input').addEventListener("change", e => {
+
+    //SE o checkbox for selecionado, adicionar a class riscar da lista. SE NÃO, remover a class riscar da lista
+    if (e.target.checked) {
+      li.classList.add('complete');
+    } else {
+      li.classList.remove('complete');
+    }
+
+  });
+
   document.querySelector('.todo').append(li);
 
 });

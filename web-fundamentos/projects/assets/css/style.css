@@ -146,3 +146,8 @@ footer {
     cursor: pointer;   /* mudar o cursos do mouse para mãozinha*/
     margin-right: 10px;
 }
+
+.todo li.complete{
+    text-decoration: line-through; /*riscar o elemento quando ele for marcado no checkbox*/
+    color: #999;
+}
