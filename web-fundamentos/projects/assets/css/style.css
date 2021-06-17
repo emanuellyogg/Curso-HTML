@@ -152,6 +152,14 @@ footer {
     color: #999;
 }
 
+.todo button {
+    width: initial;
+    color:hsl(0, 0%, 99%);
+    background-color: #72182c;
+    float: right;
+    min-width: 30px;
+}
+
 #new-task {
     width: 100%;
     padding: 10px;

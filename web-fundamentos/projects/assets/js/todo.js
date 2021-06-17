@@ -17,7 +17,7 @@ let data = [{ //criando uma Array de json (objetos)
 
 function renderTodo() {
 
-  document.querySelector('.todo').innerHTML = '';
+  document.querySelector('.todo').innerHTML = ''; // limpar o campo depois de add nova tarefa 
 
   data.forEach(task => { //data. é a Array. FOREACH passa em cada elemento da Array e vai executando cada item da lista
 
@@ -27,6 +27,7 @@ function renderTodo() {
     li.innerHTML = `
       <input type="checkbox" id="task-${task.id}">
       <label for="task-${task.id}">${task.title}</label> 
+      <button type="button">x</button>
     `;
 
     //evento para quando o item for marcado, ele ficará riscado da lista
@@ -41,21 +42,23 @@ function renderTodo() {
 
     });
 
+    li.querySelector('button') //no meu li procurar um botão que tem ai dentro e add um evento click nele
+
     document.querySelector('.todo').append(li);
 
   });
 }
 
-document.querySelector('#new-task').addEventListener('keyup', e => {
+document.querySelector('#new-task').addEventListener('keyup', e => { //escutar o evento keyup "enter" para add nova tarefa
 
-  if (e.key === 'Enter') {
+  if (e.key === 'Enter') { //SE acontecer o evento key Enter, FAÇA tal coisa
 
-    data.push({
+    data.push({ // enviar os dados para add nova tarefa
       id: data.length + 1,
       title: e.target.value
     });
 
-    e.target.value = "";
+    e.target.value = ""; //depois de enviar os dados, limpar o campo.
 
     renderTodo();
 
