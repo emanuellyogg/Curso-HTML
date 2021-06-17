@@ -15,4 +15,16 @@ let data = [{ //criando uma Array de json (objetos)
   title: "Organizar a casa"
 }];
 
-console.log(data);
+data.forEach(task => { //FOREACH passa em cada elemento da Array e vai executando cada item da lista
+
+  let li = document.createElement('li');
+
+  // label foi adicionado para clicar no title e fazer o checkbox
+  li.innerHTML = `
+    <input type="checkbox" id="task-${task.id}">
+    <label for="task-${task.id}">${task.title}</label> 
+  `;
+
+  document.querySelector('.todo').append(li);
+
+});
