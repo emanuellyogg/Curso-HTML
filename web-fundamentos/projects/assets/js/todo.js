@@ -15,36 +15,52 @@ let data = [{ //criando uma Array de json (objetos)
   title: "Organizar a casa"
 }];
 
-data.forEach(task => { //FOREACH passa em cada elemento da Array e vai executando cada item da lista
+function renderTodo() {
 
-  let li = document.createElement('li');
+  document.querySelector('.todo').innerHTML = '';
 
-  // label foi adicionado para clicar no title e fazer o checkbox
-  li.innerHTML = `
-    <input type="checkbox" id="task-${task.id}">
-    <label for="task-${task.id}">${task.title}</label> 
-  `;
+  data.forEach(task => { //data. é a Array. FOREACH passa em cada elemento da Array e vai executando cada item da lista
 
-  //evento para quando o item for marcado, ele ficará riscado da lista
-  li.querySelector('input').addEventListener("change", e => {
+    let li = document.createElement('li');
 
-    //SE o checkbox for selecionado, adicionar a class riscar da lista. SE NÃO, remover a class riscar da lista
-    if (e.target.checked) {
-      li.classList.add('complete');
-    } else {
-      li.classList.remove('complete');
-    }
+    // label foi adicionado para clicar no title e fazer o checkbox
+    li.innerHTML = `
+      <input type="checkbox" id="task-${task.id}">
+      <label for="task-${task.id}">${task.title}</label> 
+    `;
+
+    //evento para quando o item for marcado, ele ficará riscado da lista
+    li.querySelector('input').addEventListener("change", e => {
+
+      //SE o checkbox for selecionado, adicionar a class riscar da lista. SE NÃO, remover a class riscar da lista
+      if (e.target.checked) {
+        li.classList.add('complete');
+      } else {
+        li.classList.remove('complete');
+      }
+
+    });
+
+    document.querySelector('.todo').append(li);
 
   });
-
-  document.querySelector('.todo').append(li);
-
-});
+}
 
 document.querySelector('#new-task').addEventListener('keyup', e => {
 
   if (e.key === 'Enter') {
-    console.log(e.target.value);
+
+    data.push({
+      id: data.length + 1,
+      title: e.target.value
+    });
+
+    e.target.value = "";
+
+    renderTodo();
+
   }
 
 });
+
+renderTodo();
