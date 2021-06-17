@@ -151,3 +151,8 @@ footer {
     text-decoration: line-through; /*riscar o elemento quando ele for marcado no checkbox*/
     color: #999;
 }
+
+#new-task {
+    width: 100%;
+    padding: 10px;
+}

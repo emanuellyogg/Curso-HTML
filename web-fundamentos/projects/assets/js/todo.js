@@ -40,3 +40,11 @@ data.forEach(task => { //FOREACH passa em cada elemento da Array e vai executand
   document.querySelector('.todo').append(li);
 
 });
+
+document.querySelector('#new-task').addEventListener('keyup', e => {
+
+  if (e.key === 'Enter') {
+    console.log(e.target.value);
+  }
+
+});
